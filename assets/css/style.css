@@ -114,7 +114,8 @@ html {
   padding-top: 50%;
   /*  */
   /* background: url(/assets/img/slider/slider1.jpg) top center / cover no-repeat; */
-  background-image: url(/assets/img/slider/slider1.jpg);
+  /* background-image: url(/assets/img/slider/slider1.jpg); */
+  background-image: url(../img/slider/slider1.jpg);
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
