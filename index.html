@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -128,7 +129,9 @@
                   <p class="place-desc">
                     Praesent tincidunt sed tellus ut rutrum sed vitae justo.
                   </p>
-                  <a href="" class="place-buy-btn">Buy Tickets</a>
+                  <button class="place-buy-btn js-buy-ticket">
+                    Buy Tickets
+                  </button>
                 </div>
               </div>
 
@@ -145,7 +148,9 @@
                   <p class="place-desc">
                     Praesent tincidunt sed tellus ut rutrum sed vitae justo.
                   </p>
-                  <a href="" class="place-buy-btn">Buy Tickets</a>
+                  <button class="place-buy-btn js-buy-ticket">
+                    Buy Tickets
+                  </button>
                 </div>
               </div>
 
@@ -162,7 +167,9 @@
                   <p class="place-desc">
                     Praesent tincidunt sed tellus ut rutrum sed vitae justo.
                   </p>
-                  <a href="" class="place-buy-btn">Buy Tickets</a>
+                  <button class="place-buy-btn js-buy-ticket">
+                    Buy Tickets
+                  </button>
                 </div>
               </div>
 
@@ -182,9 +189,9 @@
       <div id="footer"></div>
     </div>
 
-    <div class="modal">
-      <div class="modal-container">
-        <div class="modal-close">
+    <div class="modal js-modal">
+      <div class="modal-container js-modal-container">
+        <div class="modal-close js-modal-close">
           <i class="ti-close"></i>
         </div>
 
@@ -198,13 +205,23 @@
             <i class="ti-shopping-cart"></i>
             Tickets, $15 per person
           </label>
-          <input id="How many?" type="text" class="modal-input" placeholder="How many?" />
+          <input
+            id="How many?"
+            type="text"
+            class="modal-input"
+            placeholder="How many?"
+          />
 
           <label for="enteremail" class="modal-lable">
             <i class="ti-user"></i>
             Send To
           </label>
-          <input id="enteremail" type="email" class="modal-input" placeholder="Enter email" />
+          <input
+            id="enteremail"
+            type="email"
+            class="modal-input"
+            placeholder="Enter email"
+          />
           <button id="buy-ticket">
             Pay
             <i class="ti-check"></i>
@@ -219,5 +236,32 @@
         </footer>
       </div>
     </div>
+
+    <script>
+      const butBtns = document.querySelectorAll(".js-buy-ticket");
+      const modal = document.querySelector(".js-modal");
+      const modalClose = document.querySelector(".js-modal-close");
+      const modalContainer = document.querySelector(".js-modal-container");
+
+      function showBuyTickets() {
+        modal.classList.add("open");
+      }
+
+      function hidenBuyTickets() {
+        modal.classList.remove("open");
+      }
+
+      for (const butBtn of butBtns) {
+        butBtn.addEventListener("click", showBuyTickets);
+      }
+
+      modalClose.addEventListener("click", hidenBuyTickets);
+
+      modal.addEventListener("click", hidenBuyTickets);
+
+      modalContainer.addEventListener("click", function (event) {
+        event.stopPropagation();
+      });
+    </script>
   </body>
 </html>

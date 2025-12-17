@@ -296,9 +296,13 @@ html {
   bottom: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.4);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
+}
+
+.modal.open {
+  display: flex;
 }
 
 .modal-container {
@@ -306,6 +310,8 @@ html {
   width: 900px;
   min-height: 200px;
   position: relative;
+  animation: modalFadeIn ease 0.5s;
+
 }
 
 header.modal-header {
@@ -351,7 +357,6 @@ header.modal-header {
   width: 100%;
   font-size: 14px;
   margin-bottom: 24px;
-
 }
 #buy-ticket {
   width: 100%;
@@ -375,5 +380,16 @@ header.modal-header {
 }
 
 .modal-footer a {
-  color: #2196F3;
+  color: #2196f3;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-140px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
